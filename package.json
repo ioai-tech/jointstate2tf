@@ -1,6 +1,6 @@
 {
   "name": "jointstate2tf",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "JointState -> TF from URDF, as a minimal TypeScript library (Node/Browser)",
   "type": "module",
   "main": "dist/index.js",
