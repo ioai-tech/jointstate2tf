@@ -1,0 +1,38 @@
+{
+  "name": "jointstate2tf",
+  "version": "0.2.0",
+  "description": "JointState -> TF from URDF, as a minimal TypeScript library (Node/Browser)",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "test": "node examples/xml.test.mjs"
+  },
+  "keywords": [
+    "ros",
+    "urdf",
+    "tf",
+    "jointstate",
+    "fk",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {}
+}
