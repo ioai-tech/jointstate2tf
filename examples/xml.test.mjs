@@ -1,4 +1,4 @@
-import { JointStateToTF } from '../dist/index.js';
+import JointState2TF from '../dist/index.js';
 
 // Minimal URDF: base_link ->(rev z, origin xyz=1,0,0)-> link1 ->(prismatic x, origin xyz=0,1,0)-> link2
 const urdf = `
@@ -42,7 +42,7 @@ function assertQuatNear(q, e, eps = 1e-6, label = 'quat') {
 }
 
 async function main() {
-  const engine = JointStateToTF.fromXml({ xml: urdf });
+  const engine = JointState2TF.fromXml({ xml: urdf });
 
   // joint1 = 90deg around Z, joint2 = 0.5m along X
   engine.setJointState({

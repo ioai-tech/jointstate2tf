@@ -20,10 +20,10 @@ Use a real Panda URDF (Franka Emika Panda) from:
 `https://raw.githubusercontent.com/StanfordASL/PandaRobot.jl/refs/heads/master/deps/Panda/panda.urdf`
 
 ```ts
-import { JointStateToTF, type JointState } from 'jointstate2tf';
+import JointState2TF, { type JointState } from 'jointstate2tf';
 
 // 1) Load URDF (Browser or Node 18+ with global fetch)
-const engine = await JointStateToTF.fromUrl({
+const engine = await JointState2TF.fromUrl({
   url: 'https://raw.githubusercontent.com/StanfordASL/PandaRobot.jl/refs/heads/master/deps/Panda/panda.urdf',
 });
 
@@ -86,11 +86,11 @@ Note: the numbers above are illustrative; actual poses depend on the URDF and jo
 
 ```ts
 import { readFileSync } from 'node:fs';
-import { JointStateToTF, type JointState } from 'jointstate2tf';
+import JointState2TF, { type JointState } from 'jointstate2tf';
 
 // Read URDF content from a local file
 const xml = readFileSync('panda.urdf', 'utf8');
-const engine = JointStateToTF.fromXml({ xml });
+const engine = JointState2TF.fromXml({ xml });
 
 // Same JointState format as above
 const jointState: JointState = {
@@ -113,7 +113,7 @@ console.log(JSON.stringify(tf, null, 2));
 
 ## API
 
-- `class JointStateToTF`
+- `class JointState2TF`
   - `static fromUrl({ url })`: Load URDF from URL, returns instance.
   - `static fromXml({ xml })`: Parse from URDF XML content, returns instance.
   - `setJointState(jointState)`: Set joint values on the internal model.

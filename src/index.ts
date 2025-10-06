@@ -119,7 +119,7 @@ function composeTR(a: TransformTR, b: TransformTR): TransformTR {
 }
 
 // -----------------------------
-// JointStateToTF: minimal, fast URDF FK engine
+// JointState2TF: minimal, fast URDF FK engine
 // -----------------------------
 
 /**
@@ -143,7 +143,7 @@ type UrdfModel = {
   linkParent: Map<string, string>; // child link -> parent link
 };
 
-export class JointStateToTF {
+export default class JointState2TF {
   private readonly model: UrdfModel;
 
   private constructor(model: UrdfModel) {
@@ -151,16 +151,16 @@ export class JointStateToTF {
   }
 
   /** Create an instance by loading URDF from a URL. */
-  static async fromUrl(opts: CreateFromUrlOptions): Promise<JointStateToTF> {
+  static async fromUrl(opts: CreateFromUrlOptions): Promise<JointState2TF> {
     const xml = await fetchText(opts.url);
     const model = parseUrdf(xml);
-    return new JointStateToTF(model);
+    return new JointState2TF(model);
   }
 
   /** Create an instance by parsing URDF XML content. */
-  static fromXml(opts: CreateFromXmlOptions): JointStateToTF {
+  static fromXml(opts: CreateFromXmlOptions): JointState2TF {
     const model = parseUrdf(opts.xml);
-    return new JointStateToTF(model);
+    return new JointState2TF(model);
   }
 
   /** Set joint values on the internal model. */
