@@ -1,7 +1,7 @@
 {
   "name": "jointstate2tf",
-  "version": "1.0.0",
-  "description": "JointState -> TF from URDF, as a minimal TypeScript library (Node/Browser)",
+  "version": "1.0.1",
+  "description": "convert JointState -> TF from URDF",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -29,7 +29,11 @@
     "fk",
     "typescript"
   ],
-  "author": "",
+  "author": "joaner <puxk@io-ai.tech> (https://io-ai.tech)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ioai-tech/jointstate2tf"
+  },
   "license": "MIT",
   "devDependencies": {
     "typescript": "^5.6.3"
